@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration PUBLIC "-//log4j/log4j Configuration//EN" "log4j.dtd">
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+<!-- 输出日志到控制台  ConsoleAppender -->
+	<appender name="STDOUT" class="org.apache.log4j.ConsoleAppender">
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p %c.%M:%L - %m%n" />
+		</layout>
+	</appender>
+	<!-- 输出日志到文件 -->  
+    <appender name="file"  
+        class="org.apache.log4j.FileAppender">  
+        <param name="File" value="${logRoot}/${server.name}.log"></param>  
+        <param name="Threshold" value="info"></param>  
+        <layout class="org.apache.log4j.PatternLayout">  
+            <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss\} %-5p] [%t] {%c:%L}-%m%n"></param>  
+        </layout>  
+    </appender>
+    
+	<!-- 输出日志到文件  每天一个文件 --> 
+	<appender name="DAYFILE" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="file" value="${logRoot}/${server.name}.log" />
+		<!-- Keep one backup file -->
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="%d %-5p %c.%M:%L - %m%n" />
+		</layout>
+	</appender>
+	
+	<!-- 输出日志到文件  文件大小到达指定尺寸的时候产生一个新的文件 -->  
+    <appender name="railyFile"   
+        class="org.apache.log4j.RollingFileAppender">  
+        <param name="File" value="D:/logs/railyFile.log"></param>  
+        <param name="ImmediateFlush" value="true"/>  
+        <param name="Threshold" value="info"></param>  
+        <param name="Append" value="true"></param>  
+        <param name="MaxFileSize" value="30KB"></param>  
+        <param name="MaxBackupIndex" value="100"></param>  
+        <layout class="org.apache.log4j.PatternLayout">  
+            <param name="ConversionPattern" value="[%d{yyyy-MM-dd HH:mm:ss\} %-5p] [%t] {%c:%L}-%m%n"></param>  
+        </layout>  
+    </appender>  
+  
+	<!-- specify the logging level for loggers from other libraries -->
+	<logger name="org.springframework">
+		<level value="${logLevel}" />
+	</logger>
+	<logger name="com.haier">
+		<level value="DEBUG"/>
+	</logger>
+	<!--   
+        定义全局的日志输出级别,但是在输出目的地的配置中配置的具体输出级别优先级高于全局定义的优先级。  
+        如果在railyFile中定义<param name="Threshold" value="info"></param>，那么将会把info以上级别的信息输出  
+     -->
+	<!-- for all other loggers log only info and above log messages -->
+	<root>
+		<priority value="${logLevel}" />
+		<appender-ref ref="STDOUT"/>
+		<appender-ref ref="file" />
+		<appender-ref ref="railyFile" />
+		<appender-ref ref="DAYFILE"/>
+	</root>
+</log4j:configuration> 
