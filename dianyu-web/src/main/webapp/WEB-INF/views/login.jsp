@@ -3,9 +3,9 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>用户登录-如梦技术IT-专业的java学习培训平台</title>
-    <meta name="keywords" content="如梦技术,java职业教育,java线教育平台,java在线学习,spring,mybatis,spring-boot,docker">
-    <meta name="description" content="如梦技术作为中国最权威的java在线教育平台,拥有海量高清java职业课程,涵盖个个组件,根据java在线学习特点,如梦技术推出java学习知识体系图,java职业学习实战路径图,帮助java学习者从零基础起步,结合java实战案例演练,系统学习,助你快速成为java优秀技术人才！">
+    <%--<title>用户登录-如梦技术IT-专业的java学习培训平台</title>--%>
+    <%--<meta name="keywords" content="如梦技术,java职业教育,java线教育平台,java在线学习,spring,mybatis,spring-boot,docker">--%>
+    <%--<meta name="description" content="如梦技术作为中国最权威的java在线教育平台,拥有海量高清java职业课程,涵盖个个组件,根据java在线学习特点,如梦技术推出java学习知识体系图,java职业学习实战路径图,帮助java学习者从零基础起步,结合java实战案例演练,系统学习,助你快速成为java优秀技术人才！">--%>
     <meta name="viewport" content="width=device-width">
     <%@ include file="/commons/basejs.jsp" %>
     <link rel="stylesheet" type="text/css" href="${staticPath }/static/style/css/login.css?v=201612202107" />
@@ -29,10 +29,10 @@
             <span class="p_logo"></span>
             <input class="ipt" id="password" type="password" name="password" placeholder="请输入密码"/>
         </P>
-        <P style="padding: 10px 0px 10px; position: relative;">
-            <input class="captcha" type="text" name="captcha" placeholder="请输入验证码"/>
-            <img id="captcha" alt="验证码" src="${path }/captcha.jpg" data-src="${path }/captcha.jpg?t=" style="vertical-align:middle;border-radius:4px;width:94.5px;height:35px;cursor:pointer;">
-        </P>
+        <%--<P style="padding: 10px 0px 10px; position: relative;">--%>
+            <%--<input class="captcha" type="text" name="captcha" placeholder="请输入验证码"/>--%>
+            <%--<img id="captcha" alt="验证码" src="${path }/captcha.jpg" data-src="${path }/captcha.jpg?t=" style="vertical-align:middle;border-radius:4px;width:94.5px;height:35px;cursor:pointer;">--%>
+        <%--</P>--%>
         <P style="position: relative;text-align: left;">
             <input class="rememberMe" type="checkbox" name="rememberMe" value="1" checked style="vertical-align:middle;margin-left:40px;height:20px;"/> 记住密码
         </P>
@@ -49,11 +49,11 @@
         </div>
     </form>
 </div>
-<div style="text-align:center;">
-    <p>
-        <a href="http://www.dreamlu.net/" target="_blank">如梦技术</a>
-        <script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256912241'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/stat.php%3Fid%3D1256912241%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>
-    </p>
-</div>
+<%--<div style="text-align:center;">--%>
+    <%--<p>--%>
+        <%--<a href="http://www.dreamlu.net/" target="_blank">如梦技术</a>--%>
+        <%--<script type="text/javascript">var cnzz_protocol = (("https:" == document.location.protocol) ? " https://" : " http://");document.write(unescape("%3Cspan id='cnzz_stat_icon_1256912241'%3E%3C/span%3E%3Cscript src='" + cnzz_protocol + "s4.cnzz.com/stat.php%3Fid%3D1256912241%26show%3Dpic1' type='text/javascript'%3E%3C/script%3E"));</script>--%>
+    <%--</p>--%>
+<%--</div>--%>
 </body>
 </html>
